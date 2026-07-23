@@ -1,0 +1,107 @@
+:root {
+  --color-live: #C89B3C;
+  --color-grape: #0AC8B9;
+}
+
+.shadow-glow-live {
+  box-shadow: 0 0 60px -12px rgba(200, 155, 60, 0.4) !important;
+}
+.shadow-glow-grape {
+  box-shadow: 0 0 70px -18px rgba(10, 200, 185, 0.45) !important;
+}
+
+.bg-live {
+  background-color: #C89B3C !important;
+}
+.bg-live\/5 {
+  background-color: rgba(200, 155, 60, 0.05) !important;
+}
+.bg-live\/10 {
+  background-color: rgba(200, 155, 60, 0.10) !important;
+}
+.bg-grape {
+  background-color: #0AC8B9 !important;
+}
+.bg-grape\/20 {
+  background-color: rgba(10, 200, 185, 0.20) !important;
+}
+.text-live {
+  color: #C89B3C !important;
+}
+.text-grape {
+  color: #0AC8B9 !important;
+}
+.border-live {
+  border-color: #C89B3C !important;
+}
+.border-live\/40 {
+  border-color: rgba(200, 155, 60, 0.4) !important;
+}
+.border-grape\/30 {
+  border-color: rgba(10, 200, 185, 0.3) !important;
+}
+.hover\:border-live:hover {
+  border-color: #C89B3C !important;
+}
+.hover\:bg-live\/15:hover {
+  background-color: rgba(200, 155, 60, 0.15) !important;
+}
+
+.animate-pulse-live {
+  animation: pulse-lol 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse-lol {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.foil-sheen {
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(200, 155, 60, 0.15) 36%,
+    rgba(10, 200, 185, 0.18) 48%,
+    rgba(200, 155, 60, 0.15) 60%,
+    transparent 80%
+  ) !important;
+}
+
+.mintrip-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.mintrip-logo span {
+  font-family: 'Georgia', 'Times New Roman', 'Garamond', serif;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  background: linear-gradient(
+    180deg,
+    #f0e6d2 0%,
+    #c8aa6e 25%,
+    #c89b3c 50%,
+    #785a28 75%,
+    #c8aa6e 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(200, 155, 60, 0.5));
+}
+
+.mintrip-logo:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.mintrip-logo img {
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 0 14px rgba(200, 155, 60, 0.5));
+}
