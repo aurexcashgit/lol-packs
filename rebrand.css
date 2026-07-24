@@ -1,56 +1,56 @@
 :root {
-  --color-live: #C89B3C;
-  --color-grape: #0AC8B9;
+  --color-live: #ccff00;
+  --color-grape: #00C805;
 }
 
 .shadow-glow-live {
-  box-shadow: 0 0 60px -12px rgba(200, 155, 60, 0.4) !important;
+  box-shadow: 0 0 60px -12px rgba(204, 255, 0, 0.45) !important;
 }
 .shadow-glow-grape {
-  box-shadow: 0 0 70px -18px rgba(10, 200, 185, 0.45) !important;
+  box-shadow: 0 0 70px -18px rgba(0, 200, 5, 0.45) !important;
 }
 
 .bg-live {
-  background-color: #C89B3C !important;
+  background-color: #ccff00 !important;
 }
 .bg-live\/5 {
-  background-color: rgba(200, 155, 60, 0.05) !important;
+  background-color: rgba(204, 255, 0, 0.05) !important;
 }
 .bg-live\/10 {
-  background-color: rgba(200, 155, 60, 0.10) !important;
+  background-color: rgba(204, 255, 0, 0.10) !important;
 }
 .bg-grape {
-  background-color: #0AC8B9 !important;
+  background-color: #00C805 !important;
 }
 .bg-grape\/20 {
-  background-color: rgba(10, 200, 185, 0.20) !important;
+  background-color: rgba(0, 200, 5, 0.20) !important;
 }
 .text-live {
-  color: #C89B3C !important;
+  color: #ccff00 !important;
 }
 .text-grape {
-  color: #0AC8B9 !important;
+  color: #00C805 !important;
 }
 .border-live {
-  border-color: #C89B3C !important;
+  border-color: #ccff00 !important;
 }
 .border-live\/40 {
-  border-color: rgba(200, 155, 60, 0.4) !important;
+  border-color: rgba(204, 255, 0, 0.4) !important;
 }
 .border-grape\/30 {
-  border-color: rgba(10, 200, 185, 0.3) !important;
+  border-color: rgba(0, 200, 5, 0.3) !important;
 }
 .hover\:border-live:hover {
-  border-color: #C89B3C !important;
+  border-color: #ccff00 !important;
 }
 .hover\:bg-live\/15:hover {
-  background-color: rgba(200, 155, 60, 0.15) !important;
+  background-color: rgba(204, 255, 0, 0.15) !important;
 }
 
 .animate-pulse-live {
-  animation: pulse-lol 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse-hood 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-@keyframes pulse-lol {
+@keyframes pulse-hood {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
@@ -59,9 +59,9 @@
   background: linear-gradient(
     115deg,
     transparent 20%,
-    rgba(200, 155, 60, 0.15) 36%,
-    rgba(10, 200, 185, 0.18) 48%,
-    rgba(200, 155, 60, 0.15) 60%,
+    rgba(204, 255, 0, 0.16) 36%,
+    rgba(0, 200, 5, 0.18) 48%,
+    rgba(204, 255, 0, 0.16) 60%,
     transparent 80%
   ) !important;
 }
@@ -75,24 +75,23 @@
 }
 
 .mintrip-logo span {
-  font-family: 'Georgia', 'Times New Roman', 'Garamond', serif;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: var(--font-display), var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
   line-height: 1;
+  white-space: nowrap;
   background: linear-gradient(
     180deg,
-    #f0e6d2 0%,
-    #c8aa6e 25%,
-    #c89b3c 50%,
-    #785a28 75%,
-    #c8aa6e 100%
+    #f4ffc4 0%,
+    #e4ff5c 30%,
+    #ccff00 55%,
+    #a3cc00 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 8px rgba(200, 155, 60, 0.5));
+  filter: drop-shadow(0 2px 10px rgba(204, 255, 0, 0.45));
 }
 
 .mintrip-logo:hover {
@@ -103,5 +102,12 @@
 .mintrip-logo img {
   width: 46px;
   height: 46px;
-  filter: drop-shadow(0 0 14px rgba(200, 155, 60, 0.5));
+  filter: drop-shadow(0 0 14px rgba(204, 255, 0, 0.5));
 }
+
+.space-y-10 > * + * { margin-top: 2.5rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.list-decimal { list-style-type: decimal; }
+.list-inside { list-style-position: inside; }
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
