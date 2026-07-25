@@ -101,15 +101,9 @@
     return h ? h.textContent.trim() : 'This pack';
   }
 
-  async function requireWallet() {
-    if (connected()) return true;
-    if (hasProvider()) toast('Connect a wallet first.', 'warn');
-    return await connect(false);
-  }
-
-  async function openPack(kind) {
-    var ok = await requireWallet();
-    if (!ok) return;
+  // Pack actions never prompt for a wallet — connecting is the header
+  // button's job and nothing else's.
+  function openPack(kind) {
     var what = kind === 'bundle' ? '12x bundle' : 'single open';
     toast(packName() + ' — ' + what + ' goes live at launch. Follow @getHoodPacks for the drop.');
   }
