@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1b1f12"/>
+      <stop offset="100%" stop-color="#0b0d07"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ccff00" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#00c805" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ccff00" stop-opacity="0.55"/>
+    </linearGradient>
+    <pattern id="hatch" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#ccff00" stroke-opacity="0.06" stroke-width="6"/>
+    </pattern>
+  </defs>
+
+  <rect x="4" y="4" width="292" height="392" rx="18" fill="url(#bg)" stroke="url(#edge)" stroke-width="2.5"/>
+  <rect x="4" y="4" width="292" height="392" rx="18" fill="url(#hatch)"/>
+  <rect x="20" y="20" width="260" height="360" rx="10" fill="none" stroke="#ccff00" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="8 7"/>
+
+  <g transform="translate(150 178)">
+    <circle r="52" fill="none" stroke="#ccff00" stroke-opacity="0.28" stroke-width="1.5"/>
+    <path d="M-26 22 C -26 -14, 26 -14, 26 22 Z" fill="none" stroke="#ccff00" stroke-opacity="0.75" stroke-width="3.5" stroke-linejoin="round"/>
+    <path d="M-26 22 L 26 22" stroke="#ccff00" stroke-opacity="0.75" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M0 -16 L 0 30" stroke="#00c805" stroke-opacity="0.9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-7 -9 L 0 -18 L 7 -9" fill="none" stroke="#00c805" stroke-opacity="0.9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="150" y="72" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="19" font-weight="700" letter-spacing="7" fill="#ccff00" fill-opacity="0.85">HOOD</text>
+  <text x="150" y="316" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="11" font-weight="700" letter-spacing="3" fill="#8a8a92">SET 1</text>
+  <text x="150" y="338" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="10" font-weight="700" letter-spacing="2" fill="#5f5f66">ART PENDING</text>
+</svg>
