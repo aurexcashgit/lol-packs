@@ -1,6 +1,19 @@
 :root {
   --color-live: #ccff00;
   --color-grape: #00C805;
+  --color-flare: #7dff3a;
+}
+
+/* page ambience: the base build paints three red radials here */
+body::before {
+  background:
+    radial-gradient(60rem 40rem at 12% -10%, rgba(204, 255, 0, 0.09), transparent 60%),
+    radial-gradient(50rem 38rem at 100% 0, rgba(0, 200, 5, 0.08), transparent 55%),
+    radial-gradient(40rem 40rem at 50% 120%, rgba(125, 255, 58, 0.07), transparent 60%) !important;
+}
+
+.text-holo {
+  background-image: linear-gradient(100deg, #f4ffc4, #ccff00 38%, #00C805 70%, #7dff3a) !important;
 }
 
 .shadow-glow-live {
