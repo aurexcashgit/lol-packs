@@ -8,9 +8,9 @@ window.HOODPACKS = {
   // Paste the $HPACK contract address here. Leave empty until it exists:
   // every balance readout stays as "--" and nothing errors.
   token: {
-    address: '',          // e.g. '0xAbC...123'
+    address: '0xddf18b20888898ffa4e32357912fb8957e0f711f',
     symbol: 'HPACK',
-    decimals: null        // null = read decimals() from the contract
+    decimals: 18          // verified on chain: name "Hood Packs", supply 1B
   },
 
   // ---- pack sale contract ------------------------------------------------
