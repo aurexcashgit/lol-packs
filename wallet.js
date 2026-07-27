@@ -245,15 +245,81 @@
     return h ? h.textContent.trim() : 'This pack';
   }
 
-  // Never prompts for a wallet — connecting is the header button's job.
-  function openPack(kind) {
-    var what = kind === 'bundle' ? '12x bundle' : 'single open';
+  var SEL = {
+    openPack:   '0xa2f9bc67', // openPack(uint8)
+    openBundle: '0xc61ebc7e', // openBundle(uint8)
+    quote:      '0xc7e328d4', // quote(uint8,uint8)
+    allowance:  '0xdd62ed3e', // allowance(address,address)
+    approve:    '0x095ea7b3'  // approve(address,uint256)
+  };
+
+  var MAX_UINT = 'f'.repeat(64);
+
+  function padNum(n) { return BigInt(n).toString(16).padStart(64, '0'); }
+
+  function currentTier() {
+    var el = document.querySelector('[data-hp-tier]');
+    return el ? parseInt(el.getAttribute('data-hp-tier'), 10) : null;
+  }
+
+  async function sendTx(to, data) {
+    return await window.ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [{ from: addr, to: to, data: data }]
+    });
+  }
+
+  async function openPack(kind) {
     var sale = (CFG.packs || {}).address;
+    var what = kind === 'bundle' ? '12x bundle' : 'single open';
+
+    // No sale contract yet: say so, do not prompt for anything.
     if (!sale) {
       toast(packName() + ' — ' + what + ' goes live at launch. Follow @getHoodPacks for the drop.');
       return;
     }
-    toast('Opening is not wired to the sale contract yet.', 'warn');
+
+    var tier = currentTier();
+    if (tier === null) { toast('Could not resolve this pack tier.', 'warn'); return; }
+
+    if (!hasProvider()) { toast('No wallet detected. Install MetaMask, then reload.', 'warn'); return; }
+    if (!connected()) {
+      var ok = await connect(false);
+      if (!ok) return;
+    }
+    if (!(await ensureChain())) return;
+
+    try {
+      var count = kind === 'bundle' ? 12 : 1;
+      var priceHex = await ethCall(sale, SEL.quote + padNum(tier) + padNum(count));
+      var price = BigInt(priceHex && priceHex !== '0x' ? priceHex : '0x0');
+      if (price === 0n) { toast('This tier is not priced yet.', 'warn'); return; }
+
+      var d = await readDecimals();
+      var pretty = formatUnits(price, d) + ' $' + (TOKEN.symbol || 'HPACK');
+
+      // Approve only when the existing allowance is short.
+      var allowHex = await ethCall(
+        TOKEN.address,
+        SEL.allowance + pad32(addr) + pad32(sale)
+      );
+      var allowance = BigInt(allowHex && allowHex !== '0x' ? allowHex : '0x0');
+
+      if (allowance < price) {
+        toast('Approve ' + pretty + ' first, then confirm the open.');
+        await sendTx(TOKEN.address, SEL.approve + pad32(sale) + MAX_UINT);
+      }
+
+      toast('Opening ' + packName() + ' for ' + pretty + '...');
+      var sel = kind === 'bundle' ? SEL.openBundle : SEL.openPack;
+      await sendTx(sale, sel + padNum(tier));
+
+      toast(packName() + ' opened. Your cards are in My Vault.', 'ok');
+      refreshBalance();
+    } catch (e) {
+      if (e && e.code === 4001) toast('Cancelled.', 'warn');
+      else toast('Open failed. Check your $HPACK balance and try again.', 'warn');
+    }
   }
 
   /* ---------------- delegated clicks ---------------- */
