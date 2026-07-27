@@ -230,6 +230,14 @@
     paint();
   }
 
+  /* ---------------- pre-launch notices ---------------- */
+
+  // Drop the "not live yet" notices automatically once the sale contract
+  // is configured, so the page never contradicts the buttons.
+  if ((CFG.packs || {}).address) {
+    document.querySelectorAll('[data-hp-prelaunch]').forEach(function (el) { el.remove(); });
+  }
+
   /* ---------------- pack actions ---------------- */
 
   function packName() {

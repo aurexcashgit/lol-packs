@@ -14,9 +14,20 @@ window.HOODPACKS = {
   },
 
   // ---- pack sale contract ------------------------------------------------
-  // Fill when pack opening ships. Until then Open Pack reports launch status.
+  // Fill when pack opening ships. Until then Open Pack reports launch status
+  // and the pre-launch notices stay on the pack pages.
+  //
+  // NOTE: this must be a CONTRACT that takes $HPACK, rolls the pull against the
+  // published odds and mints the card. A plain wallet address will not work,
+  // there is nothing to call.
   packs: {
     address: ''
+  },
+
+  // Revenue receiver, used by the sale contract once it is deployed.
+  // Verified as an EOA on Robinhood Chain, no contract code.
+  treasury: {
+    address: '0xe09265d1d2c1015736199e450fc3803a0f43b20a'
   },
 
   // ---- Robinhood Chain ---------------------------------------------------
