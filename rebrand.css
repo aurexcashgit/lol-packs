@@ -189,6 +189,24 @@ body::before {
   .hp-mobile-nav { display: none !important; }
 }
 
+/* $HPACK balance pill next to the wallet button */
+.hp-balance {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(204, 255, 0, 0.28);
+  background: rgba(204, 255, 0, 0.07);
+  color: #ccff00;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .hp-balance { display: none; }
+}
+
 /* tight mobile header: mark only, no wordmark */
 #wallet-btn { white-space: nowrap; }
 @media (max-width: 560px) {
